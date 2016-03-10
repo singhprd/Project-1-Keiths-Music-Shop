@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/rg'
-require_relative '../artist'
+require_relative '../models/artist'
 
 
 class TestArtist < MiniTest::Test

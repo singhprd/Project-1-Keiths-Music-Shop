@@ -1,8 +1,8 @@
 require 'minitest/autorun'
 require 'minitest/rg'
-require_relative '../album'
-require_relative '../artist'
-require_relative '../stock'
+require_relative '../models/album'
+require_relative '../models/artist'
+require_relative '../models/stock'
 
 class TestStock < MiniTest::Test
 
