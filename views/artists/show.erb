@@ -1,0 +1,11 @@
+<h2>Artist Details</h2>
+<p>Name:</p>
+<%= @artist.name %>
+
+<!-- delete button -->
+
+<form action="/artists/<%= @artist.id %>/delete" method="post">
+  <input type="submit" value="Delete Arist"/>
+</form>
+
+<a href="/artists/<%= @artist.id %>/edit ">Edit Artist</a>

@@ -19,11 +19,21 @@ attr_reader :title, :artist_id, :id
     return Album.map_item(sql)
   end
 
+  def update()
+    sql = "UPDATE Albums SET title = '#{@title}', artist_id = #{@artist_id} WHERE id = #{@id} "
+    SqlRunner.run( sql )
+    return last_entry()
+  end  
 
   def self.find( id )
    sql = "SELECT * FROM Albums WHERE id = #{id}"
-   result = SqlRunner.run( sql )
+   result = Album.map_item( sql )
    return result
+  end
+
+  def self.destroy( id )
+    sql = "DELETE FROM Albums WHERE id = '#{id}'"
+    SqlRunner.run(sql)
   end
 
   def self.all()

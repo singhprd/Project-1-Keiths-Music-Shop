@@ -1,0 +1,5 @@
+Q: WHY doesnt :id work in artists?
+Went to sinata docs and to access :id I had to go to params['id']
+
+
+In Album/edit make drop downs select default values

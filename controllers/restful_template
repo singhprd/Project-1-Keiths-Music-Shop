@@ -1,0 +1,34 @@
+# INDEX
+get '/artist' do
+  erb :'artist/index'
+end
+
+# NEW
+get '/artist/new' do
+  erb :'artist/new'
+end
+
+# CREATE
+post '/artist' do
+  erb :'artist/create'
+end
+
+# SHOW
+get '/artist/:id' do
+  erb :'artist/show'
+end
+
+# EDIT
+get '/artist/:id/edit' do
+  erb :'artist/edit'
+end
+
+# UPDATE 
+put '/artist/:id' do
+  erb :'artist/update'
+end
+
+# DESTROY
+delete '/artist/:id/delete' do
+  erb :'artist/destroy'
+end

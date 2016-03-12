@@ -6,12 +6,18 @@ class Artist
   attr_reader :name, :id
 
   def initialize( params )
-    @name = params['name']
     @id = params['id']
+    @name = params['name']
   end
 
   def save
     sql = "INSERT INTO Artists (name) VALUES ('#{@name}');"
+    SqlRunner.run( sql )
+    return last_entry()
+  end
+
+  def update()
+    sql = "UPDATE artists SET name='#{@name}' WHERE id = #{@id}"
     SqlRunner.run( sql )
     return last_entry()
   end
@@ -23,14 +29,22 @@ class Artist
 
 
   def self.find( id )
-   sql = "SELECT * FROM Artists WHERE id = #{id}"
-   result = SqlRunner.run( sql )
-   return result
+    sql = "SELECT * FROM Artists WHERE id = #{id}"
+    result = SqlRunner.run( sql )
+    @id = id
+    @result = result[0]
+    @batman = Artist.new( result[0] )
+    return @batman
   end
 
   def self.all()
     sql = "SELECT * FROM Artists"
     return Artist.map_items(sql)
+  end
+
+  def self.destroy( id )
+    sql = "DELETE FROM Artists WHERE id = '#{id}'"
+    SqlRunner.run(sql)
   end
 
   def self.delete_all 
