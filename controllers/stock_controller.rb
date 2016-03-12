@@ -1,5 +1,8 @@
 # INDEX
 get '/stocks' do
+  @albums = Album.all
+  @artists = Artist.all
+  @stocks = Stock.all
   erb :'stocks/index'
 end
 

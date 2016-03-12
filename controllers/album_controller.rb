@@ -14,6 +14,10 @@ end
 post '/albums' do
   album = Album.new( params )
   album.save
+  last = album.last_entry
+  @params = {'album_id' => last.id, 'quantity' => 0}
+  stock = Stock.new( params )
+  stock.save
   redirect '/albums'  
 end
 

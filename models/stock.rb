@@ -1,6 +1,6 @@
 class Stock
 
-attr_reader :album_id, :quantity, :id
+  attr_reader :album_id, :quantity, :id
 
   def initialize( params )
     @album_id = params['album_id']
@@ -24,9 +24,9 @@ attr_reader :album_id, :quantity, :id
    sql = "SELECT * FROM Stocks WHERE id = #{id}"
    result = SqlRunner.run( sql )
    return result
-  end
+   end
 
-  def self.all()
+   def self.all()
     sql = "SELECT * FROM Stocks"
     return Stock.map_items(sql)
   end
@@ -47,6 +47,5 @@ attr_reader :album_id, :quantity, :id
     result = stock.map { |stock| Stock.new( stock ) }
     return result
   end
-  
 
 end

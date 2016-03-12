@@ -1,0 +1,18 @@
+<% @stocks.each do |stock| %>
+
+<% album = Album.find(stock.album_id) %>
+<% artist = Artist.find(album.artist_id) %>
+
+
+<p>Album:</p>
+<%= album.title %> by 
+<%= artist.name %>
+
+<p>Quantity:</p>
+<%= stock.quantity %>
+
+<% end %>
+
+<hr>
+
+<a href="/stocks/new">Add New stocks</a>

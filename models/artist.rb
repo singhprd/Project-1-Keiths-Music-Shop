@@ -30,11 +30,8 @@ class Artist
 
   def self.find( id )
     sql = "SELECT * FROM Artists WHERE id = #{id}"
-    result = SqlRunner.run( sql )
-    @id = id
-    @result = result[0]
-    @batman = Artist.new( result[0] )
-    return @batman
+    result = Artist.map_item( sql )
+    return result
   end
 
   def self.all()
