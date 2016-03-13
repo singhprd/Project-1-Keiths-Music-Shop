@@ -3,16 +3,13 @@
 <% album = Album.find(stock.album_id) %>
 <% artist = Artist.find(album.artist_id) %>
 
-
-<p>Album:</p>
+<p>
 <%= album.title %> by 
 <%= artist.name %>
-
-<p>Quantity:</p>
 <%= stock.quantity %>
-
+</p>
+<hr>
 <% end %>
 
-<hr>
 
 <a href="/stocks/new">Add New stocks</a>

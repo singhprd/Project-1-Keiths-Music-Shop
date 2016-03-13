@@ -1,11 +1,14 @@
+require_relative 'album'
+require_relative 'artist'
+
 class Stock
 
   attr_reader :album_id, :quantity, :id
 
   def initialize( params )
+    @id = params['id']
     @album_id = params['album_id']
     @quantity = params['quantity']
-    @id = params['id']
   end
 
   def save
@@ -18,7 +21,6 @@ class Stock
     sql = "SELECT * FROM Stocks ORDER BY id DESC limit 1;"
     return Stock.map_item(sql)
   end
-
 
   def self.find( id )
    sql = "SELECT * FROM Stocks WHERE id = #{id}"

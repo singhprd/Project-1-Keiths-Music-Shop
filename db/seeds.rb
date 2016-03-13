@@ -9,13 +9,27 @@ Artist.delete_all
 
 
 boyzone = Artist.new({ 'name' => 'Boyzone' })
-artist1 = boyzone.save
+boyzone = boyzone.save
 
-wings = Album.new({ 'title' => "Wings", 'artist_id' => artist1.id })
-album1 = wings.save
+wings = Album.new({ 'title' => "Wings", 'artist_id' => boyzone.id })
+byrequest = Album.new({ 'title' => 'By Request', 'artist_id' => boyzone.id })
+wings.save
+byrequest.save
 
-stock = Stock.new({ 'quantity' => 20, 'album_id' => album1.id })
-stock1 = stock.save
+steps = Artist.new({ 'name' => 'Steps' })
+steps = steps.save
+
+steptacular = Album.new({ 'title' => 'Steptacular', 'artist_id' => steps.id })
+stepone = Album.new({ 'title' => 'Step One', 'artist_id' => steps.id })
+steptacular.save
+stepone.save
+
+opm = Artist.new({ 'name' => 'OPM' })
+opm = opm.save
+menacetosobriety = Album.new({ 'title' => 'Menace To Sobriety', 'artist_id' => opm.id })
+heavencanwait = Album.new({ 'title' => 'Heaven Can Wait', 'artist_id' => opm.id })
+menacetosobriety.save
+heavencanwait.save
 
 
 nil

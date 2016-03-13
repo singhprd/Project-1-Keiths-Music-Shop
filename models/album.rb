@@ -1,6 +1,7 @@
+require_relative 'stock'
 class Album 
 
-attr_reader :title, :artist_id, :id
+  attr_reader :title, :artist_id, :id
 
   def initialize( params )
     @title = params['title']
@@ -11,6 +12,8 @@ attr_reader :title, :artist_id, :id
   def save
     sql = "INSERT INTO Albums (title, artist_id) VALUES ('#{@title}', '#{@artist_id}');"
     SqlRunner.run( sql )
+    stock = Stock.new( 'album_id' => last_entry.id, 'quantity' => 0 )
+    stock.save
     return last_entry()
   end
 
@@ -29,33 +32,38 @@ attr_reader :title, :artist_id, :id
    sql = "SELECT * FROM Albums WHERE id = #{id}"
    result = Album.map_item( sql )
    return result
-  end
+ end
 
-  def self.destroy( id )
-    sql = "DELETE FROM Albums WHERE id = '#{id}'"
-    SqlRunner.run(sql)
-  end
-
-  def self.all()
-    sql = "SELECT * FROM Albums"
-    return Album.map_items(sql)
-  end
-
-  def self.delete_all 
-    sql = "DELETE FROM Albums"
-    SqlRunner.run(sql)
-  end
-
-
-  def self.map_item(sql)
-    result = Album.map_items(sql)
-    return result.first
-  end  
-
-  def self.map_items(sql)
-    album = SqlRunner.run(sql)
-    result = album.map { |album| Album.new( album ) }
-    return result
-  end
-  
+ def self.destroy( id )
+  sql = "DELETE FROM Albums WHERE id = '#{id}'"
+  SqlRunner.run(sql)
 end
+
+def self.all()
+  sql = "SELECT * FROM Albums"
+  return Album.map_items(sql)
+end
+
+def self.delete_all 
+  sql = "DELETE FROM Albums"
+  SqlRunner.run(sql)
+end
+
+
+def self.map_item(sql)
+  result = Album.map_items(sql)
+  return result.first
+end  
+
+def self.map_items(sql)
+  album = SqlRunner.run(sql)
+  result = album.map { |album| Album.new( album ) }
+  return result
+end
+
+end
+
+
+    # stock_args = { 'album_id' => last_entry.id, 'quantity' => 0 }
+    # stock = Stock.new( stock_args )
+    # stock.save
