@@ -1,15 +1,33 @@
-<% @stocks.each do |stock| %>
 
+<table id="stock_table">
+  <head>
+    <th>Album</th>
+    <th>Artist</th>
+    <th>Quantity</th>
+    <th>Order Stock</th>
+  </head>
+  <body>
+<form>
+<% @stocks.each do |stock| %>
 <% album = Album.find(stock.album_id) %>
 <% artist = Artist.find(album.artist_id) %>
-
-<p>
-<%= album.title %> by 
-<%= artist.name %>
-<%= stock.quantity %>
-</p>
-<hr>
+    <tr>
+      <td><%= album.title %></td>
+      <td><%= artist.name %></td>
+      <td><%= stock.quantity %></td>
+      <td><input type="number"></input></td>
+    </tr>
 <% end %>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td><input type="submit" value="Order" /></td>
+</tr>
+  </body>
 
+</table>
+</form>
+<hr>
 
 <a href="/stocks/new">Add New stocks</a>
