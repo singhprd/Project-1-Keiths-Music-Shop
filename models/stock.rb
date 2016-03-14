@@ -26,15 +26,15 @@ class Stock
 
   def self.find( id )
    sql = "SELECT * FROM Stocks WHERE id = #{id}"
-   result = SqlRunner.run( sql )
+   result = Stock.map_item( sql )
    return result
- end
+  end
 
  def self.search(  )
 
-end
+ end
 
-def self.all()
+ def self.all()
   sql = "SELECT * FROM Stocks ORDER BY id"
   return Stock.map_items(sql)
 end

@@ -21,3 +21,11 @@ CREATE TABLE stocks (
   sell_price INT4
 );
 
+CREATE TABLE till (
+id serial4 PRIMARY KEY,
+quantity INT4,
+stock_id INT4 REFERENCES stocks(id),
+buy_price INT4,
+sell_price INT4
+);
+
