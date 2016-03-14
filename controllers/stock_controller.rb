@@ -11,10 +11,18 @@ get '/stocks/new' do
   erb :'stocks/new'
 end
 
-# CREATE
-post '/stocks' do
-  erb :'stocks/create'
+# UPDATE ALL STOCKS
+post '/stocks' do 
+  Stock.update_all( params )
+  redirect '/stocks'
 end
+
+# get '/stocks/search' do 
+#   @albums = Album.all
+#   @artists = Artist.all
+#   @stocks = Stock.search( params )
+#   erb :'stocks/index'
+# end
 
 # SHOW
 get '/stocks/:id' do

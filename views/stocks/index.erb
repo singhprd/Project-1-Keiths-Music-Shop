@@ -1,3 +1,9 @@
+<h1>Stocks</h1>
+
+<form action="/stocks/search" method="get">
+  <input type="text" name="search"></input>
+  <input type="submit" value="Search"></input>
+</form>
 
 <table id="stock_table">
   <head>
@@ -5,9 +11,11 @@
     <th>Artist</th>
     <th>Quantity</th>
     <th>Order Stock</th>
+    <th>Buy Price</th>
+    <th>Sell Price</th>
   </head>
   <body>
-<form>
+<form action="/stocks" method="post">
 <% @stocks.each do |stock| %>
 <% album = Album.find(stock.album_id) %>
 <% artist = Artist.find(album.artist_id) %>
@@ -15,7 +23,9 @@
       <td><%= album.title %></td>
       <td><%= artist.name %></td>
       <td><%= stock.quantity %></td>
-      <td><input type="number"></input></td>
+      <td><input type="number" name="<%= stock.id %>"></input></td>
+      <td><%= stock.buy_price %></td>
+      <td><%= stock.sell_price %></td>
     </tr>
 <% end %>
 <tr>

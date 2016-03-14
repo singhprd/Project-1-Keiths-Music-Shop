@@ -3,3 +3,14 @@ Went to sinata docs and to access :id I had to go to params['id']
 
 
 In Album/edit make drop downs select default values
+
+  - Show stock level of all items:
+    - High/Medium/Low based on quantity
+
+    Any further analysis would be appreciated but not required, for example:
+
+- Create route that sends down Inventory data as JSON
+- Work out the markup for each product ( there could be a buy price and a sell price )
+  - Total possible sales & markup on inventory page
+- Search functionality on Inventory page
+- Associated Genre (Keith associates one Genre to Artists)

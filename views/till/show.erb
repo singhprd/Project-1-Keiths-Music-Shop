@@ -1,0 +1,17 @@
+<form action="/till" method="post">
+
+  <select name="stock_id">
+    <% for stock in @stocks %>
+    <option value="<%= stock.id %>">
+      <% album = Album.find(stock.album_id) %>
+      <%= album.title %> by <%= Artist.find(album.artist_id).name %>
+    </option>
+    <% end %>
+  </select>
+
+  <label for="quantity">Quantity:</label>
+  <input type="number" name="quantity"/>
+
+  <input type="submit" />
+
+</form>

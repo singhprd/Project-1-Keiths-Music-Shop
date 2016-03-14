@@ -6,13 +6,13 @@ class Album
   def initialize( params )
     @title = params['title']
     @artist_id = params['artist_id']
-    @id = params['id'] 
+    @id = params['id']
   end
 
   def save
     sql = "INSERT INTO Albums (title, artist_id) VALUES ('#{@title}', '#{@artist_id}');"
     SqlRunner.run( sql )
-    stock = Stock.new( 'album_id' => last_entry.id, 'quantity' => 0 )
+    stock = Stock.new( 'album_id' => last_entry.id, 'quantity' => 10, 'buy_price' => 10, 'sell_price' => 15 )
     stock.save
     return last_entry()
   end
