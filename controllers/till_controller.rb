@@ -2,6 +2,7 @@ get '/till' do
   @stocks = Stock.all
   @artists = Artist.all
   @albums = Album.all
+  @total_revenue = Till.total_revenue
   erb :'till/show'
 end
 

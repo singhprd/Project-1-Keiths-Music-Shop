@@ -16,4 +16,17 @@ class Till
     SqlRunner.run( sql )
   end
 
+  def self.delete_all 
+    sql = "DELETE FROM Till"
+    SqlRunner.run(sql)
+  end
+
+  def self.total_revenue
+    sql = "SELECT SUM(sell_price) FROM Till;"
+    result = SqlRunner.run(sql)
+    result = result[0]
+    result = result['sum']
+    return result
+  end
+
 end

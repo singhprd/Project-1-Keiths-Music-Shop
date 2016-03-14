@@ -21,6 +21,7 @@ end
 get '/albums/:id' do
   id = params['id']
   @album = Album.find( id )
+  @spotify_link = Spotify.find_album( @album.id )
   erb :'albums/show'
 end
 
