@@ -1,3 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Arvo);
+
+* {
+    font-family: 'Arvo', serif;
+    font-size: 1em;
+}
+
 body {
     background-image: url("shop.jpg");
     background-size: 986px 652px;
@@ -61,6 +68,7 @@ li a:hover:not(.active) {
     border-radius: 5px;
     margin: 10px;
     padding: 5px;
+    width: auto;
 }
 
 #till {
@@ -69,6 +77,17 @@ li a:hover:not(.active) {
     margin: 50px;
     background-color: #ddd;
     height: 200px;
-    width: 300px;
+    width: auto;
     border-radius: 5px;
+}
+
+#spotify {
+    padding: 30px;
+    padding-left: 100px;
+}
+
+.bottom-link {
+    color: blue;
+    size: 1.5em;
+    background: #ddd;
 }

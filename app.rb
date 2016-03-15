@@ -12,7 +12,7 @@ require_relative 'controllers/stock_controller'
 require_relative 'controllers/till_controller'
 
 get '/' do
-  erb :'/homepage'
+  erb :homepage
 end
 
 not_found do
