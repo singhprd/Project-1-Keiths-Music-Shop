@@ -24,6 +24,25 @@ class Stock
     return Stock.map_item(sql)
   end
 
+  def self.reduce_quantity_check(amount, stock_id)
+    sql1 = "SELECT quantity FROM Stocks WHERE id = #{stock_id}"
+    previous = SqlRunner.run( sql1 )
+    previous = previous[0]['quantity'].to_i
+      if previous >= amount 
+        return true
+      elsif previous < amount
+        return false
+      end    
+  end
+
+  def self.reduce_quantity( amount, stock_id )
+    sql1 = "SELECT quantity FROM Stocks WHERE id = #{stock_id}"
+    previous = SqlRunner.run( sql1 )
+    previous = previous[0]['quantity'].to_i
+    sql2 = "UPDATE Stocks SET quantity = #{previous - amount} WHERE id = #{stock_id}"
+    SqlRunner.run(sql2)
+  end
+
   def self.find( id )
    sql = "SELECT * FROM Stocks WHERE id = #{id}"
    result = Stock.map_item( sql )

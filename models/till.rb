@@ -12,6 +12,7 @@ class Till
   end
 
   def save( params )
+    stock = Stock.find(@stock_id.to_i)
     sql = "INSERT INTO Till (stock_id, quantity, buy_price, sell_price) VALUES ( '#{@stock_id}', '#{@quantity}', '#{@buy_price}', '#{sell_price}');"
     SqlRunner.run( sql )
   end
@@ -22,7 +23,7 @@ class Till
   end
 
   def self.total_revenue
-    sql = "SELECT SUM(sell_price) FROM Till;"
+    sql = "SELECT SUM(sell_price * quantity) FROM Till;"
     result = SqlRunner.run(sql)
     result = result[0]
     result = result['sum']
