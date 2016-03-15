@@ -17,12 +17,13 @@ post '/stocks' do
   redirect '/stocks'
 end
 
-# get '/stocks/search' do 
-#   @albums = Album.all
-#   @artists = Artist.all
-#   @stocks = Stock.search( params )
-#   erb :'stocks/index'
-# end
+get '/stocks/search' do 
+  input = params['search']
+  @albums = Album.all
+  @artists = Artist.all
+  @stocks = Stock.search( input )
+  erb :'stocks/index'
+end
 
 # SHOW
 get '/stocks/:id' do

@@ -34,4 +34,9 @@ album1.save
 album2.save
 
 
+artist = Artist.new({ 'name' => 'Public Service Broadcasting' })
+artist = artist.save
+album = Album.new({ 'title' => 'The Race for Space', 'artist_id' => artist.id })
+album.save
+
 nil

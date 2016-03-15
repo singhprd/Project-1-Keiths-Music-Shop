@@ -1,5 +1,8 @@
 <form action="/till" method="post">
 
+
+<div id="till">
+  
   <select name="stock_id">
     <% for stock in @stocks %>
     <option value="<%= stock.id %>">
@@ -9,11 +12,18 @@
     <% end %>
   </select>
 
-  <label for="quantity">Quantity:</label>
+<p>
+    <label for="quantity">Quantity:</label>
   <input type="number" name="quantity"/>
+</p>
 
+<p>
   <input type="submit" />
+</p>
 
 </form>
 
 <p>Total Revenue: <%= @total_revenue %></p>
+
+
+</div>

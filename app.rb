@@ -14,3 +14,8 @@ require_relative 'controllers/till_controller'
 get '/' do
   erb :'/homepage'
 end
+
+not_found do
+  status 404
+  erb :not_found
+end
