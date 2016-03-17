@@ -28,3 +28,8 @@ end
 get '/till/out_of_stock' do
   erb :'/till/out_of_stock'
 end
+
+get '/till/index' do
+  @tills = Till.select_all
+  erb :'/till/index'
+end

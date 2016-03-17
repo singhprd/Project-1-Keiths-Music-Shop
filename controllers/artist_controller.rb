@@ -44,5 +44,7 @@ end
 get '/artists/:id' do
   id = params['id']
   @artist = Artist.find( id )
+  @spotify = Spotify.find_artist(id)
+  @image_array = Spotify.image( id )
   erb( :'artists/show' )
 end

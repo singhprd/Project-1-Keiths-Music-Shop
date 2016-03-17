@@ -30,4 +30,11 @@ class Till
     return result
   end
 
+  def self.select_all
+    sql = "SELECT * FROM Till"
+    till = SqlRunner.run( sql )
+    result = till.map { |till| Till.new( till ) }
+    return result
+  end
+
 end

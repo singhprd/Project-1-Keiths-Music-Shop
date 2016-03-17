@@ -9,5 +9,9 @@
   <input type="submit" value="Delete Arist"/>
 </form>
 
+<p>popularity:<%= @spotify.popularity %></p>
+
+<img src="<%= @image_array[0]['url'] %>" width="<%= @image_array[0]['width']/2 %>" height="<%= @image_array[0]['height']/2 %>">
+
 </div>
 <a class="bottom-link" href="/artists/<%= @artist.id %>/edit ">Edit Artist</a>

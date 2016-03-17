@@ -7,7 +7,7 @@ class Artist
 
   def initialize( params )
     @id = params['id']
-    @name = params['name']
+    @name = params['name'].downcase
   end
 
   def save

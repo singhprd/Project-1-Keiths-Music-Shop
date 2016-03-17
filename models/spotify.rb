@@ -20,4 +20,19 @@ class Spotify
     return album
   end
 
+  def self.find_artist( artist_id )
+    artist_to_find = Artist.find( artist_id ).name
+    artist = RSpotify::Artist.search("#{artist_to_find}")
+    artist = artist.first
+    return artist
+  end
+
+  def self.image( artist_id )
+    artist_to_find = Artist.find( artist_id ).name
+    artist = RSpotify::Artist.search("#{artist_to_find}")
+    artist = artist.first
+    image_array = artist.images  
+    return image_array
+  end
+
 end

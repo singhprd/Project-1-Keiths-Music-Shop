@@ -1,0 +1,18 @@
+<div id="content">
+
+<% @tills.each do |till| %>
+
+<p>till:</p>
+
+    <p>Transaction id: <%= till.id %></p>
+    <p>Stock id: <%= till.stock_id %></p>
+    <p>Quantity:
+    <%= till.quantity %></p>
+    <p>Buy Price: <%= till.buy_price %></p> 
+    <p>Sell Price: <%= till.sell_price %> </p>
+  </p>
+
+  <hr>
+<% end %>
+
+</div>

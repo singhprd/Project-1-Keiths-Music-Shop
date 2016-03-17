@@ -4,7 +4,7 @@ class Album
   attr_reader :title, :artist_id, :id
 
   def initialize( params )
-    @title = params['title']
+    @title = params['title'].downcase
     @artist_id = params['artist_id']
     @id = params['id']
   end

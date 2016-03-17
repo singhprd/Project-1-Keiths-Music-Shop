@@ -22,25 +22,7 @@
     <th>Sell Price</th>
   </head>
   <body>
-<form action="/stocks" method="post">
-<% @stocks.each do |stock| %>
-<% album = Album.find(stock.album_id) %>
-<% artist = Artist.find(album.artist_id) %>
-    <tr>
-      <td><%= album.title %></td>
-      <td><%= artist.name %></td>
-      <td><%= stock.quantity %></td>
-      <td><input type="number" name="<%= stock.id %>"></input></td>
-      <td><%= stock.buy_price %></td>
-      <td><%= stock.sell_price %></td>
-    </tr>
-<% end %>
-<tr>
-  <td></td>
-  <td></td>
-  <td></td>
-  <td><input type="submit" value="Order" /></td>
-</tr>
+  <tr><td>None Found</td></tr>
   </body>
 
 </table>
