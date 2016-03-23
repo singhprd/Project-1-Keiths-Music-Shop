@@ -1,9 +1,11 @@
 require 'sinatra'
 require 'sinatra/contrib/all'
-require 'pry-byebug'
 require 'tilt/erubis'
+require 'phusion_passenger/rack_handler'
+require 'rubygems'
 
   set :bind, '0.0.0.0'
+  set :port, 80
   set :environment, :production
   
 require_relative 'models/artist'
