@@ -3,6 +3,9 @@ require 'sinatra/contrib/all'
 require 'tilt/erubis'
 require 'phusion_passenger/rack_handler'
 require 'rubygems'
+require 'bundler/setup'
+require 'pg'
+
 
   set :bind, '0.0.0.0'
   set :port, 80
