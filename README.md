@@ -1,7 +1,6 @@
 # Project-1-Keiths-Music-Shop
-An app for a music shop to keep track of inventory.
 
-This project was my first for CodeClan and was a great way to reinforce the knowlege I have gained over the first four weeks.
+This project was my first for CodeClan and was a great way to reinforce the knowlege I have gained over the first four weeks of the course.
 
 Keiths Music Shop is a web app for a music shop owner to keep track of his stock.
 It links three databases (artists, albums and stock) to a till which allows the user to sell albums. 
